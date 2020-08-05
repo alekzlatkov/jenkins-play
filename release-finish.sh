@@ -36,8 +36,6 @@ then
     exit 1
 fi
 
-exit 99
-
 # Set origin url
 git remote set-url origin $ORIGIN_URL
 
