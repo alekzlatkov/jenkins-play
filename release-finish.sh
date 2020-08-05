@@ -1,7 +1,5 @@
 #!/bin/sh -xe
 
-set -e
-
 ORIGIN_URL=$1
 VERSION=$2
 NEXT_VERSION=$3
@@ -10,6 +8,15 @@ RELEASE_BRANCH="release/$VERSION"
 TAG=$VERSION
 
 # Validate input
+if [ -z "$ORIGIN_URL" ]
+then
+    echo "ORIGIN_URL is empty"
+    exit 1
+fi
+
+# Set origin url
+git remote set-url origin $ORIGIN_URL
+
 if [ -z "$NEXT_VERSION" ]
 then
     echo "NEXT_VERSION is empty"
@@ -35,9 +42,6 @@ then
     echo "Tag alread exists: $TAG"
     exit 1
 fi
-
-# Set origin url
-git remote set-url origin $ORIGIN_URL
 
 # Merge release into develop and set next snapshot version
 git checkout develop
