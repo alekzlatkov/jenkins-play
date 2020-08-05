@@ -20,14 +20,14 @@ then
     exit 1
 fi
 
-RELEASE_BRANCH_EXISTS=$(git --ls-remote --heads origin $RELEASE_BRANCH | wc -l)
+RELEASE_BRANCH_EXISTS=$(git ls-remote --heads origin $RELEASE_BRANCH | wc -l)
 if [ "$RELEASE_BRANCH_EXISTS" == "0" ]
 then
     echo "Release branch does not exists: $RELEASE_BRANCH"
     exit 1
 fi
 
-TAG_EXISTS=$(git --ls-remote --tags origin $TAG | wc -l)
+TAG_EXISTS=$(git ls-remote --tags origin $TAG | wc -l)
 if [ "$TAG_EXISTS" == "1" ]
 then
     echo "Tag alread exists: $TAG"
