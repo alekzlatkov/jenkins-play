@@ -1,3 +1,5 @@
+#!/bin/sh -xe
+
 set -e
 
 ORIGIN_URL=$1
