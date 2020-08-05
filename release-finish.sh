@@ -1,5 +1,7 @@
 #!/bin/sh -xe
 
+set -e
+
 ORIGIN_URL=$1
 VERSION=$2
 NEXT_VERSION=$3
